@@ -1,0 +1,564 @@
+/*Start Variables*/
+:root {
+  --main-color: #10cab7;
+  --second-color: #2c4755;
+  --main-duration: 0.5s;
+  --section-background: #f6f6f6;
+  --main-padding: 30px;
+}
+/*End Variables*/
+
+/* Start Global Rule */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  /* We use padding-right and left for when size is small for example for a phone because for a small screen no margin will be do */
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Global Rule */
+
+/* Start Components */
+
+.special-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.special-header h2 {
+  margin: 0px;
+  font-size: 100px;
+  color: #ebeced;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.special-header p {
+  margin-top: -30px;
+  color: #797979;
+  font-size: 20px;
+}
+
+@media (max-width: 767px) {
+  .special-header h2 {
+    font-size: 60px;
+  }
+
+  .special-header p {
+    margin-top: -17px;
+    font-size: 15px;
+  }
+}
+
+/* End Components */
+
+/* Start Header */
+.header {
+  padding: 20px;
+}
+
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .links {
+  position: relative;
+}
+
+.header .links .icon {
+  display: flex;
+  flex-direction: column;
+  height: 15px;
+  width: 30px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header .links .icon span {
+  background-color: var(--second-color);
+  width: 100%;
+  height: 2px;
+}
+
+.header .links .icon span:nth-child(2) {
+  width: 60%;
+  transition: var(--main-duration);
+}
+
+.header .links:hover span:nth-child(2) {
+  width: 100%;
+}
+
+.header .container .links ul {
+  list-style: none;
+  padding-left: 0px;
+  width: 220px;
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  /* To appear above the other elements, especially the Landing Section */
+  z-index: 1;
+}
+
+.header .links:hover ul {
+  display: block;
+}
+
+.header .container .links ul li {
+  padding: 10px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
+.header ul li:not(:last-child) {
+  border-bottom: solid #dfdfdf 1px;
+}
+
+.header li a {
+  text-decoration: none;
+  color: #333;
+  transition: transform var(--main-duration);
+  /* transform doesn't work on inline */
+  display: block;
+  font-size: 20px;
+}
+
+.header ul::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 5px;
+  border-color: transparent transparent #f6f6f6;
+  border-width: 10px;
+  border-style: solid;
+}
+
+.header ul li:hover a {
+  transform: translate(10px);
+}
+
+/* End Header */
+
+/* Start Landing Section */
+
+.landing {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/landing.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.landing .intro-text {
+  text-align: center;
+  width: 350px;
+}
+
+.landing h1 {
+  color: var(--main-color);
+  font-size: 50px;
+  margin: 0;
+}
+
+.landing p {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Emd Landing Section */
+
+/* Sart Features */
+
+.features {
+  background-color: var(--section-background);
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+}
+
+.features > .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--main-padding);
+  justify-content: space-between;
+  text-align: center;
+  color: #333;
+}
+
+.features i {
+  color: var(--main-color);
+}
+
+.features h3 {
+  font-weight: 800;
+}
+
+.features p {
+  color: #777;
+  line-height: 1.8;
+}
+
+.features .feature {
+  padding: 20px;
+  box-shadow: inset 0 0 11px 3px #3333330c;
+  border-radius: 10px;
+  transition: var(--main-duration);
+}
+
+.features .feature:hover {
+  box-shadow: inset 0 0 11px 3px #33333314;
+}
+
+/* End Features */
+
+/* Start Services */
+
+.services {
+  padding: var(--main-padding);
+}
+
+.services .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .services .container {
+    flex-direction: column-reverse;
+  }
+}
+
+.services .image {
+  position: relative;
+  transform: scale(0.7);
+  width: fit-content;
+}
+
+.services .image img {
+  box-shadow: 4px 4px 10px 3px #3333337a;
+}
+
+/* Unfortunately, most browsers do not support using :after or :before on img tags. */
+.services .image::before {
+  content: "";
+  position: absolute;
+  top: -12.5%;
+  right: -50px;
+  width: 111px;
+  height: 125%;
+  background-color: var(--second-color);
+  z-index: -1;
+}
+
+.services .list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--main-padding);
+  text-align: center;
+}
+
+.services .service {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  text-align: left;
+}
+
+.services .service i {
+  color: var(--main-color);
+  flex-basis: 60px;
+}
+
+.services .service .text {
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .services .service {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.services .service h3 {
+  font-weight: 800;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.services .service p {
+  line-height: 1.8;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* End Services */
+
+/* Start Protfolio */
+
+.protfolio {
+  background-color: var(--section-background);
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+}
+
+.protfolio .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--main-padding);
+}
+
+.protfolio .project-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.protfolio .project-card img {
+  /* This is so that the image does not out from the content */
+  max-width: 100%;
+  transition: var(--main-duration);
+}
+
+.protfolio .project-card:hover img {
+  transform: translate(-5px, -5px);
+  box-shadow: var(--main-color) 5px 5px 0px 0px,
+    var(--main-color) 4.5px 4.5px 0px 0px, var(--main-color) 4px 4px 0px 0px,
+    var(--main-color) 3.5px 3.5px 0px 0px, var(--main-color) 3px 3px 0px 0px,
+    var(--main-color) 2.5px 2.5px 0px 0px, var(--main-color) 2px 2px 0px 0px,
+    var(--main-color) 1.5px 1.5px 0px 0px, var(--main-color) 1px 1px 0px 0px,
+    var(--main-color) 0.5px 0.5px 0px 0px;
+}
+
+.protfolio .project-card .text {
+  background-color: white;
+  padding: 20px;
+}
+
+.protfolio .project-card .text h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.protfolio .project-card .text p {
+  margin: 0;
+  line-height: 1.8;
+  color: #777;
+}
+
+/* End Protfolio */
+
+/* Start About */
+
+.about {
+  padding-top: var(--main-padding);
+  padding-bottom: calc(var(--main-padding) + 60px);
+}
+
+.about .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about .image {
+  position: relative;
+  width: fit-content;
+}
+
+.about .image img {
+  width: 260px;
+  box-shadow: 4px 4px 10px 3px #3333337a;
+}
+
+/* Unfortunately, most browsers do not support using :after or :before on img tags. */
+.about .image::before {
+  top: -40px;
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: calc(100% - 120px);
+  border-left: 80px solid var(--main-color);
+  border-bottom: 80px solid var(--main-color);
+  z-index: -1;
+  right: -150px;
+}
+
+.about .image::after {
+  content: "";
+  background-color: #ebeced;
+  position: absolute;
+  top: -40px;
+  left: -30px;
+  width: 80px;
+  height: calc(100% + 80px);
+  z-index: -1;
+}
+
+.about .container .text {
+  flex-basis: calc(100% - 260px - 250px);
+  line-height: 1.8;
+}
+
+.about .container .text p:first-child {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.about .container .text hr {
+  border: none;
+  background-color: var(--main-color);
+  width: 50%;
+  height: 2px;
+  display: inline-block;
+}
+
+.about .container .text p:last-child {
+  color: #777;
+}
+
+@media (max-width: 992px) {
+  .about .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .image {
+    margin-bottom: 60px;
+  }
+
+  .about .image::before {
+    display: none;
+  }
+}
+
+/* End About */
+
+/* Start Contact */
+
+.contact {
+  background-color: var(--section-background);
+  padding-top: var(--main-padding);
+  padding-bottom: calc(var(--main-padding) + 60px);
+}
+
+.contact .container {
+  text-align: center;
+}
+
+.contact .container > p {
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--second-color);
+  margin: 0 0 10px;
+}
+
+.contact .container > a {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.contact .container .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact .container .links p {
+  color: var(--second-color);
+  margin: 0;
+}
+
+.contact .container .links a {
+  margin-left: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--second-color);
+  transition: var(--main-duration);
+}
+
+.contact .container .links a:hover {
+  color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+  .contact .container > p {
+    font-size: 27px;
+  }
+
+  .contact .container .links {
+    flex-direction: column;
+  }
+
+  .contact .container .links a {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+}
+
+/* End Contact */
+
+footer {
+  background-color: var(--second-color);
+  text-align: center;
+  color: white;
+  padding: 20px 15px;
+}
+
+footer span {
+  color: var(--main-color);
+  font-weight: bold;
+}
